@@ -1,6 +1,7 @@
 package com.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 // default bean id tennisCoach, same name as the class lower case first character
@@ -8,10 +9,12 @@ import org.springframework.stereotype.Component;
 public class TennisCoach implements ICoach {
 	
 	
-	// although private it will resolve the dependency and set the field behind the scenes
-	// it construct the class then inject into TennisCoach using reflection
+	// can still work if you use field/name with lower case unhappyFortuneService?
+	// use bean ID to be specific as there are now different objects implementing 
+	// the IFortuneService
 	@Autowired
-	private IFortuneService unhappyFortuneService;
+	@Qualifier("unhappyFortuneService")
+	private IFortuneService fortuneService;
 	
 	// define a default constructor
 	public TennisCoach() {
@@ -49,7 +52,7 @@ public class TennisCoach implements ICoach {
 	@Override
 	public String getDailyFortune() {
 		
-		return unhappyFortuneService.getFortune();
+		return fortuneService.getFortune();
 		
 	}
 
