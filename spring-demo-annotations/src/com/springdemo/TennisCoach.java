@@ -2,8 +2,8 @@ package com.springdemo;
 
 import org.springframework.stereotype.Component;
 
-// the bean id is sillyCoach, it is automatically registered no XML
-@Component("sillyCoach")
+// default bean id tennisCoach, same name as the class lower case first character
+@Component
 public class TennisCoach implements ICoach {
 
 	@Override
