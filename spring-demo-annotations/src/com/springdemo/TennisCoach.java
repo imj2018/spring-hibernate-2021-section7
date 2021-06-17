@@ -8,6 +8,9 @@ import org.springframework.stereotype.Component;
 public class TennisCoach implements ICoach {
 	
 	
+	// although private it will resolve the dependency and set the field behind the scenes
+	// it construct the class then inject into TennisCoach using reflection
+	@Autowired
 	private IFortuneService unhappyFortuneService;
 	
 	// define a default constructor
@@ -16,6 +19,7 @@ public class TennisCoach implements ICoach {
 	}
 	
 	
+	/*
 	// any method for injection (dependency injection)
 	@Autowired
 	public void doSomeCrazyStuff(IFortuneService unhappyFortuneService) {
@@ -23,7 +27,7 @@ public class TennisCoach implements ICoach {
 		System.out.println(">> TennisCoach: inside doSomeCrazyStuff method");
 		this.unhappyFortuneService = unhappyFortuneService;
 	
-	}
+	}*/
 	
 	
 	/*
@@ -41,8 +45,7 @@ public class TennisCoach implements ICoach {
 	public String getDailyWorkout() {
 		return "Practice your backhand volley";
 	}
-
-
+	
 	@Override
 	public String getDailyFortune() {
 		
