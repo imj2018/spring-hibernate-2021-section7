@@ -16,12 +16,11 @@ public class TennisCoach implements ICoach {
 	}
 	
 	
-	// define a setter method
-	// Autowired, resolve this dependency i.e inject this setter
+	// any method for injection (dependency injection)
 	@Autowired
-	public void setUnhappyFortuneService(IFortuneService unhappyFortuneService) {
+	public void doSomeCrazyStuff(IFortuneService unhappyFortuneService) {
 		
-		System.out.println(">> TennisCoach: inside setUnhappyFortuneService method");
+		System.out.println(">> TennisCoach: inside doSomeCrazyStuff method");
 		this.unhappyFortuneService = unhappyFortuneService;
 	
 	}
