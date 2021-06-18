@@ -13,7 +13,7 @@ public class TennisCoach implements ICoach {
 	// use bean ID to be specific as there are now different objects implementing 
 	// the IFortuneService
 	@Autowired
-	@Qualifier("unhappyFortuneService")
+	@Qualifier("randomFortuneService")
 	private IFortuneService fortuneService;
 	
 	// define a default constructor
