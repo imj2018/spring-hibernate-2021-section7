@@ -1,19 +1,19 @@
 package com.springdemo;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-// default bean id tennisCoach, same name as the class lower case first character
+
 @Component
-@Scope("prototype")
+//@Scope("prototype")
 public class TennisCoach implements ICoach {
 	
 	
-	// can still work if you use field/name with lower case unhappyFortuneService?
-	// use bean ID to be specific as there are now different objects implementing 
-	// the IFortuneService
 	@Autowired
 	@Qualifier("randomFortuneService")
 	private IFortuneService fortuneService;
@@ -23,6 +23,20 @@ public class TennisCoach implements ICoach {
 		System.out.println(">> TennisCoach: inside default constructor");
 	}
 	
+	
+	// define my init method
+	// call/execute after constructor and dependency injections
+	@PostConstruct
+	public void doMyStartUpStuff() {
+		System.out.println(">> TennisCoach: inside of doMyStartUpStuff");		
+	}
+	
+	// define my destroy method
+	// execute before bean is destroyed
+	@PreDestroy
+	public void doMyCleanupStuff() {
+		System.out.println(">> TennisCoach: inside of doMyCleanupStuff");		
+	}
 	
 	/*
 	// any method for injection (dependency injection)

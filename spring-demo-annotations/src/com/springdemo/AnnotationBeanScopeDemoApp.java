@@ -25,7 +25,7 @@ public class AnnotationBeanScopeDemoApp {
 		System.out.println("\nMemory location for coach: " + coach);
 		
 		System.out.println("\nMemory location for coach: " + alphaCoach);
-
+		
 		
 		// close the context
 		context.close();
