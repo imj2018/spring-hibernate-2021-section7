@@ -2,10 +2,12 @@ package com.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 // default bean id tennisCoach, same name as the class lower case first character
 @Component
+@Scope("prototype")
 public class TennisCoach implements ICoach {
 	
 	
