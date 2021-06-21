@@ -6,11 +6,12 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
  
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
  
 public class MyLoggerConfig {
-	
+	 
 	public MyLoggerConfig(String rootLoggerLevel, String printedLoggerLevel) {
-		 
+ 
 		// parse levels
 		Level rootLevel = Level.parse(rootLoggerLevel);
 		Level printedLevel = Level.parse(printedLoggerLevel);
@@ -31,7 +32,6 @@ public class MyLoggerConfig {
  
 		// add handler to the logger
 		loggerParent.addHandler(consoleHandler);
-	
 	
 	// for xml logging (red text)
 	/*
@@ -71,4 +71,5 @@ public class MyLoggerConfig {
 	}
 	*/
 	}
+	
 }

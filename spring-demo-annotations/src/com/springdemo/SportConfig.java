@@ -1,13 +1,28 @@
 package com.springdemo;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 // config class no xml file, add Beans
 @Configuration
 //@ComponentScan("com.springdemo")
+@PropertySource("classpath:sport.properties")
+@PropertySource("classpath:mylogger.properties")
 public class SportConfig {
+	
+	
+	// logging stuff
+	@Bean
+	public MyLoggerConfig myLoggerConfig(@Value("${root.logger.level}") String rootLoggerLevel,
+										 @Value("${printed.logger.level}") String printedLoggerLevel) {
+ 
+		MyLoggerConfig myLoggerConfig = new MyLoggerConfig(rootLoggerLevel, printedLoggerLevel);
+ 
+		return myLoggerConfig;
+	}
 	
 	// define bean for a our sad fortune service
 	// method name of the Bean Id is sadFortuneService which is registered, not using component scan 
